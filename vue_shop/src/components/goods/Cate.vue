@@ -12,8 +12,8 @@
     <el-card>
         <el-row>
             <el-col>
-                <!-- 绑定 showAddCateDialogVisible 事件，D4-10-->
-                <el-button type="primary" @click="showAddCateDialogVisible">添加分类</el-button>
+                <!-- 绑定 showAddCateDialog 事件，D4-10-->
+                <el-button type="primary" @click="showAddCateDialog">添加分类</el-button>
             </el-col>
         </el-row>
 
@@ -59,8 +59,8 @@
 
             <el-form-item label="父级分类：">
                 <!-- 记得去 element.js，设置Cascader ，D4-12-->
-                <!-- options 用来指定数据源,props 的配置选项， ，D4-12-->
-                <el-cascader expand-trigger="hover" v-model="value" :options="ParentCateList" :props="{ expandTrigger: 'hover' }" @change="handleChange"></el-cascader>
+                <!-- options 用来指定数据源,props 的用来指定配置对象，v-model 必须绑定数组不能绑定值 ,parentCateChanged 去methods定义函数，clearable  清空，change-on-select允许选中任意一项，D4-12-->
+                <el-cascader expand-trigger="hover" v-model="selectedKeys" :options="parentCateList" :props=" cascaderProps" @change="parentCateChanged" clearable change-on-select></el-cascader>
             </el-form-item>
 
         </el-form>
@@ -133,7 +133,15 @@ export default {
                 }]
             },
             // 父级分类的列表， D4-11
-            ParentCateList: [],
+            parentCateList: [],
+            // 指定级联选择器的配置对象 prop，value和Id相关，label父级名称，children和子级信息 D4-12
+            cascaderProps: {
+                value: 'cat_id',
+                label: 'cat_name',
+                children: 'children',
+            },
+            // 选中的父级分类的Id数组， D4-12
+            selectedKeys: [],
         }
     },
     // 生命周期函数
@@ -175,7 +183,7 @@ export default {
             this.getCateList()
         },
         // 点击按钮，展示添加分类的对话框， D4-10
-        showAddCateDialogVisible() {
+        showAddCateDialog() {
             // 先获取父级分类的数据列表，4-11
             this.getParentCateList()
             // 再展示出对话框，D4-10
@@ -198,6 +206,10 @@ export default {
             // 赋值，保存到 parentCateList 
             this.parentCateList = res.data
         }
+    },
+    // 选择项发生变化触发这个函数
+    parentCateChanged() {
+        console.log(this.selectedKeys)
     }
 }
 </script>
@@ -207,5 +219,10 @@ export default {
 <style lang="less" scoped>
 .treeTable {
     margin-top: 15px;
+}
+
+// 级联选择器， D4-12
+.el-cascader {
+    width: 100%;
 }
 </style>
