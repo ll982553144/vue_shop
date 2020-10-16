@@ -206,6 +206,7 @@ export default {
             // 赋值，保存到 parentCateList 
             this.parentCateList = res.data
         }
+
     },
     // 选择项发生变化触发这个函数
     parentCateChanged() {
