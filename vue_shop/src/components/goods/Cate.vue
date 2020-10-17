@@ -189,6 +189,7 @@ export default {
             // 再展示出对话框，D4-10
             this.addCateDialogVisible = true
         },
+
         // 获取父级分类的数据列表,去调用，D4-11
         async getParentCateList() {
             const {
