@@ -1,3 +1,4 @@
+<!-- 模板区-->
 <template>
 <div class="login_container">
     <div class="login_box">
@@ -26,6 +27,8 @@
     </div>
 </div>
 </template>
+
+<!-- 行为区-->
 
 <script>
 export default {
@@ -76,7 +79,7 @@ export default {
         },
         // 调用login按钮，D1-21
         login() {
-            // validate回调函数接收valid形参一般是bolean值,判断表单是否通过，D1-21
+            // validate回调函数接收valid形参一般是boolean值,判断表单是否通过，D1-21
             this.$refs.loginFormRef.validate(async (valid) => {
                 // valid是否为false
                 if (!valid) return;
@@ -103,7 +106,7 @@ export default {
 };
 </script>
 
-<!--scoped当前生效，没有则全局生效-->
+<!-- 样式区, 支持less语法，scoped 指令控制样式生效区间，scoped 去掉则会全局生效导致样式冲突-->
 
 <style lang="less" scoped>
 .login_container {
