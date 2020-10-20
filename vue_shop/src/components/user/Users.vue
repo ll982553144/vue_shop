@@ -103,6 +103,7 @@
                 <el-input v-model="editForm.username" disabled></el-input>
             </el-form-item>
         </el-form>
+
         <!-- 需要校验规则prop ，D2-31-->
         <el-form :model="editForm" :rules="editFormRules" ref="editFormRef" label-width="70px">
             <el-form-item label="邮箱" prop="email">
