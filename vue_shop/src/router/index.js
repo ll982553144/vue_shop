@@ -8,6 +8,7 @@ import Welcome from '@/components/Welcome.vue'
 // 2.Users组件，D2-12
 import Users from '@/components/user/Users.vue'
 
+
 // 权限管理,D3-2
 import Rights from '@/components/power/Rights.vue'
 // D3-7
