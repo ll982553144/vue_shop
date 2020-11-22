@@ -9,6 +9,7 @@ import Welcome from '@/components/Welcome.vue'
 import Users from '@/components/user/Users.vue'
 
 
+
 // 权限管理,D3-2
 import Rights from '@/components/power/Rights.vue'
 // D3-7
@@ -18,8 +19,6 @@ import Roles from '@/components/power/Roles.vue'
 import Cate from '@/components/goods/Cate.vue'
 
 Vue.use(VueRouter)
-
-
 
 const router = new VueRouter({
   routes:[
