@@ -47,8 +47,6 @@
                     </el-menu-item>
                 </el-submenu>
 
-
-
             </el-menu>
         </el-aside>
         <!-- 右侧内容主体-->
@@ -80,7 +78,6 @@ export default {
             isCollapse: false,
             // Date中定义一个数据保存激活的链接地址，D2-13
             activePath: ''
-
         }
     },
     // 1.定义一个生命周期函数，D2-5
@@ -89,7 +86,7 @@ export default {
         this.activePath = window.sessionStorage.getItem('activePath')
     },
     methods: {
-        // 退出功能D1-26
+        // 退出功能 D1-26
         logout() {
             window.sessionStorage.clear()
             this.$router.push('/login')
